@@ -3,7 +3,7 @@ import { Nav } from "./nav";
 import { Cards } from "./cards";
 import { postData } from "./components/DUMMY_DATA";
 import { useState } from "react";
-import { VelogWrite } from "./velogWrite";
+import { VelogWrite } from "./VelogWrite";
 
 function App() {
   const [currentMode, setCurrentMode] = useState("trending");
