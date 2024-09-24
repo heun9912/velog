@@ -12,6 +12,8 @@ function App() {
   console.log(currentMode);
   console.log(isWrite);
 
+  console.log(currentMode);
+  console.log(isWrite);
   // 1. 포스트 데이터안에 객체로 처음으로 가져오는데 usestate값을 가져온다.
   // 1.1 가져온값이 어떤값인지 확인(배열, 객체)해 본다.
   // 2. 배열의 요소 만큼 반복 시킨다. react에서는 보통 map을 사용
