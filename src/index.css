@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style-type: none;
 }
 img {
   max-width: 100%;
@@ -34,10 +35,20 @@ header button {
 header button:hover {
   text-decoration: underline;
 }
+.main {
+  display: flex;
+  justify-content: center; /* 가로 방향 중앙 배치 */
+  flex-wrap: wrap;
+}
+.mainLi {
+  align-items: center;
+  display: flex;
+}
 .card {
   border: 1px solid black;
   width: 300px;
   height: auto;
+  padding: 5%;
 }
 .card .card-img {
 }

@@ -3,6 +3,7 @@ import { Cards } from "./cards";
 // import { postData } from "./components/DUMMY_DATA";
 export function Nav({ setCurrentMode }) {
   const [css, setCss] = useState("menu1");
+
   // console.log("ddd", postData);
   return (
     <>

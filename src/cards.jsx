@@ -1,5 +1,6 @@
-import { useState } from "react";
-// import { postData } from "./components/DUMMY_DATA";
+import { useRef } from "react";
+import Modal from "./modalDetail"; // 모달 컴포넌트를 가져옵니다.
+
 function Cards({
   title,
   content,
@@ -10,10 +11,18 @@ function Cards({
   userImage,
   comments,
 }) {
+  const modalRef = useRef(); // 모달을 제어하기 위한 ref 생성
+
+  const openModal = () => {
+    modalRef.current.openModal(); // 모달 열기 메서드 호출
+  };
+
   return (
     <>
       <div className="card">
-        <div className="card-img">
+        <div className="card-img" onClick={openModal}>
+          {" "}
+          {/* 클릭 시 모달 열림 */}
           <img src={image} alt="" />
         </div>
         <div className="cardtext">
@@ -38,7 +47,21 @@ function Cards({
           </div>
         </div>
       </div>
+
+      {/* 모달 컴포넌트를 추가 */}
+      <Modal
+        ref={modalRef}
+        title={title}
+        content={content}
+        author={author}
+        createdAt={createdAt}
+        image={image}
+        likes={likes}
+        userImage={userImage}
+        comments={comments}
+      />
     </>
   );
 }
+
 export { Cards };

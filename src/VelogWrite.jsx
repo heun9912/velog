@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { useRef } from "react";
 // 리액트 훅(hooks)
 // 1. useState
 // 2. useRef
-export function VelogWrite({ setData }) {
+export function VelogWrite({ setData, currentMode, velogData }) {
+  console.log("123");
   const titleRef = useRef();
   const contentRef = useRef();
   const authorRef = useRef();
@@ -19,8 +21,8 @@ export function VelogWrite({ setData }) {
     // const userImage = userImageRef.current.value;
 
     setData((prev) => {
-      const trending = "trending";
-      const prevArray = prev.trending;
+      const trending = currentMode;
+      const prevArray = prev[currentMode];
       const newData = {
         id: Date.now(),
         title: titleRef.current.value,
@@ -31,10 +33,15 @@ export function VelogWrite({ setData }) {
         creatAt: Date.now(),
       };
       //   prevArray.push(newData);
-      const newArray = [...prevArray, newData];
+      // Json.stringy => 자바스크립트 객체 -> json으로 변환
+      const newArray = JSON.stringify({
+        ...prev,
+        [trending]: [...prevArray, newData],
+      });
+      localStorage.setItem("getData", newArray);
       return {
         ...prev,
-        [trending]: [...newArray],
+        [trending]: [...prevArray, newData],
       };
     });
   }
